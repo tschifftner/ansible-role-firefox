@@ -1,0 +1,3 @@
+---
+#firefox_download_url: 'https://download.mozilla.org/?product=firefox-{{ firefox_version }}-SSL&os={{ firefox_os }}&lang={{ firefox_language }}'
+firefox_download_url: 'http://ftp.mozilla.org/pub/firefox/releases/{{ firefox_version }}/{{ firefox_os }}/{{ firefox_language }}/firefox-{{ firefox_version }}.tar.bz2'

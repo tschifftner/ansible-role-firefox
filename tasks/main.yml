@@ -1,0 +1,22 @@
+---
+- name: Set installation facts
+  set_fact:
+    firefox_installation_dir: '/opt/firefox-{{ firefox_version }}'
+
+- name: 'Create folder'
+  file:
+    path: '{{ firefox_installation_dir }}'
+    state: directory
+
+- name: 'Download and extract firefox'
+  unarchive:
+    src: '{{ firefox_download_url }}'
+    dest: '{{ firefox_installation_dir }}'
+    copy: no
+    creates: '{{ firefox_installation_dir }}/firefox/firefox'
+
+- name: 'Create symlink'
+  file:
+    src: '{{ firefox_installation_dir }}/firefox/firefox'
+    dest: '/usr/local/bin/firefox'
+    state: link
